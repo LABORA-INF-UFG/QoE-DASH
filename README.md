@@ -1,4 +1,4 @@
-# QoE-DASH: DASH QoE Performance EvaluationTool for Edge-Cache and Recommendation
+# QoE-DASH: DASH QoE Performance Evaluation Tool for Edge-Cache and Recommendation
 
 QoE-DASH was tested in Ubuntu 20.04 LTS and Ubuntu Server 20.04 LTS. Although it may work in some other Debian-based Linux distributions, we do not guarantee that all features will work well.
 
