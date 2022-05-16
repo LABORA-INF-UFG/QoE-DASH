@@ -1,0 +1,97 @@
+{
+    "nodes": [
+        {
+            "nodeNumber": 1,
+            "nodeType": "Cloud"
+        },
+        {
+            "nodeNumber": 2,
+            "nodeType": "MECHost"
+        },
+        {
+            "nodeNumber": 3,
+            "nodeType": "BaseStation",
+            "numberUEs": 5,
+            "bsCapacity": 216.4
+        },
+        {
+            "nodeNumber": 4,
+            "nodeType": "BaseStation",
+            "numberUEs": 5,
+            "bsCapacity": 106.208
+        },
+        {
+            "nodeNumber": 5,
+            "nodeType": "UE",
+            "bsAsc": 1,
+            "ueCapacity": 42.768,
+            "screenRes": 3
+        },
+        {
+            "nodeNumber": 6,
+            "nodeType": "UE",
+            "bsAsc": 2,
+            "ueCapacity": 17.52,
+            "screenRes": 3
+        },
+        {
+            "nodeNumber": 7,
+            "nodeType": "UE",
+            "bsAsc": 1,
+            "ueCapacity": 17.52,
+            "screenRes": 2
+        },
+        {
+            "nodeNumber": 8,
+            "nodeType": "UE",
+            "bsAsc": 2,
+            "ueCapacity": 10.32,
+            "screenRes": 2
+        },
+        {
+            "nodeNumber": 9,
+            "nodeType": "UE",
+            "bsAsc": 1,
+            "ueCapacity": 42.768,
+            "screenRes": 4
+        },
+        {
+            "nodeNumber": 10,
+            "nodeType": "UE",
+            "bsAsc": 2,
+            "ueCapacity": 42.768,
+            "screenRes": 1
+        },
+        {
+            "nodeNumber": 11,
+            "nodeType": "UE",
+            "bsAsc": 1,
+            "ueCapacity": 56.672,
+            "screenRes": 3
+        },
+        {
+            "nodeNumber": 12,
+            "nodeType": "UE",
+            "bsAsc": 2,
+            "ueCapacity": 32.832,
+            "screenRes": 4
+        },
+        {
+            "nodeNumber": 13,
+            "nodeType": "UE",
+            "bsAsc": 1,
+            "ueCapacity": 56.672,
+            "screenRes": 2
+        },
+        {
+            "nodeNumber": 14,
+            "nodeType": "UE",
+            "bsAsc": 2,
+            "ueCapacity": 2.768,
+            "screenRes": 2
+        }
+    ],
+    "limits": {
+        "internetCapacity": 322.608
+    }
+}
