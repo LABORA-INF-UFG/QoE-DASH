@@ -98,12 +98,13 @@ This sub-module provides the user the flexibility of generating different repres
 You can run the Video encoding sub-module by running the following script combined with the arguments:
 
 ```
-python3 videoEncoding.py -v Video.mp4 -fps FPS -b360 X -b480 Y -b720 Z -b1080 K -bAud M -bAr N -bAc G
+python3 videoEncoding.py -v Video.mp4 -fps FPS -segLen X -b360 Y -b480 Z -b720 K -b1080 L -bAud M -bAr N -bAc O
 ```
 
 Where:\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -v (file) – The video that will be encoded (in MP4 format).\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -fps (int) – The desired video FPS.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -segLen (float) – DASH segment length.\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -b360 (float) – Video bitrate (in Mbps) for 360p.\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -b480 (float) – Video bitrate (in Mbps) for 480p.\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -b720 (float) – Video bitrate (in Mbps) for 720p.\
@@ -117,7 +118,7 @@ Note: If you prefer, you can skip the audio related informartion and encode the 
 Here is an example:
 
 ```
-python3 videoEncoding.py -v ../../InputFiles/videoExample.mp4 -fps 48 -b360 1.5 -b480 4 -b720 7.5 -b1080 12 -bAud 384 -bAr 48 -bAc 2
+python3 videoEncoding.py -v ../../InputFiles/videoExample.mp4 -fps 48 -segLen 4 -b360 1.5 -b480 4 -b720 7.5 -b1080 12 -bAud 384 -bAr 48 -bAc 2
 ```
 
 Once the video is encoded, a directory called "encodedVideo" will be created and this directory will contain the video encoded accordingly to your arguments.
