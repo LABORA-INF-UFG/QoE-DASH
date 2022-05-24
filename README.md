@@ -104,7 +104,7 @@ python3 videoEncoding.py -v Video.mp4 -fps FPS -segLen X -b360 Y -b480 Z -b720 K
 Where:\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -v (file) – The video that will be encoded (in MP4 format).\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -fps (int) – The desired video FPS.\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -segLen (float) – DASH segment length.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -segLen (float) – DASH segment length (in seconds).\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -b360 (float) – Video bitrate (in Mbps) for 360p.\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -b480 (float) – Video bitrate (in Mbps) for 480p.\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -b720 (float) – Video bitrate (in Mbps) for 720p.\
