@@ -23,7 +23,7 @@ These instructions will guide you to get QoE-DASH up and running.
 ```
 sudo apt update
 sudo apt install python3 python3-pip ffmpeg gpac openvswitch-switch git curl unzip
-sudo pip3 install argparse gdown
+pip3 install argparse gdown
 ```
 
 It is also necessary to install **[Docker](https://docs.docker.com/)**, please refer to the official Docker documentation on [how to install it](https://docs.docker.com/engine/install/ubuntu/).
