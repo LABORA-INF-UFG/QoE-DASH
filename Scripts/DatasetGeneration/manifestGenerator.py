@@ -220,12 +220,12 @@ def generateMPD (cachefile, datasetLocation):
 		with open (cacheMovieName, 'w') as MPDfile:
 			MPDfile.write(fileData)
 
-	cacheMoviespath = '../../InputFiles/cacheMovies'
+	cacheMoviespath = 'cacheMovies'
 
 	if (not os.path.isdir(cacheMoviespath)):
-		os.system ("mkdir ../../InputFiles/cacheMovies")
+		os.system ("mkdir cacheMovies")
 
-	os.system ("mv *.mpd ../../InputFiles/cacheMovies")
+	os.system ("mv *.mpd cacheMovies")
 
 def main ():
 
