@@ -32,43 +32,26 @@ def createChunks (video, fps, segLen, b360, b480, b720, b1080, bAud, bAr, bAc):
 		
 		print ("{}Finished video enconding for {}p{}".format(color.RED, int(ResolutionHeightList[ResIndex]), color.END))
 
-	if (bAud != -1.0 and bAr != -1.0 and bAc != -1.0):
+	print ("{}Starting audio enconding{}".format(color.RED, color.END))
 
-		print ("{}Starting audio enconding{}".format(color.RED, color.END))
+	os.system ('ffmpeg -y -i {} -map 0:1 -vn -c:a aac -b:a {}k -ar {}k -ac {} audio{}.m4a'
+			.format(video, bAud, bAr, bAc, fps))
 
-		os.system ('ffmpeg -y -i {} -map 0:1 -vn -c:a aac -b:a {}k -ar {}k -ac {} audio{}.m4a'
-				.format(video, bAud, bAr, bAc, fps))
+	print ("{}Finished audio enconding{}".format(color.RED, color.END))
 
-		print ("{}Finished audio enconding{}".format(color.RED, color.END))
+	print ("{}Starting dashing{}".format(color.RED, color.END))
 
-		print ("{}Starting dashing{}".format(color.RED, color.END))
+	os.system ("MP4Box -dash {} -frag {} -rap \
+			-segment-name 'segment_$RepresentationID$_' -fps {} \
+			video_intermed_{}p_{}fps.mp4#video:id=360p \
+			video_intermed_{}p_{}fps.mp4#video:id=480p \
+			video_intermed_{}p_{}fps.mp4#video:id=720p \
+			video_intermed_{}p_{}fps.mp4#video:id=1080p \
+			audio{}.m4a#audio:id=Audio:role=main \
+			-out manifest.mpd".
+			format(segLen, segLen, fps, ResolutionHeightList[0], fps, ResolutionHeightList[1], fps, ResolutionHeightList[2], fps, ResolutionHeightList[3], fps, fps))
 
-		os.system ("MP4Box -dash {} -frag {} -rap \
-				-segment-name 'segment_$RepresentationID$_' -fps {} \
-				video_intermed_{}p_{}fps.mp4#video:id=360p \
-				video_intermed_{}p_{}fps.mp4#video:id=480p \
-				video_intermed_{}p_{}fps.mp4#video:id=720p \
-				video_intermed_{}p_{}fps.mp4#video:id=1080p \
-				audio{}.m4a#audio:id=Audio:role=main \
-				-out manifest.mpd".
-				format(segLen, segLen, fps, ResolutionHeightList[0], fps, ResolutionHeightList[1], fps, ResolutionHeightList[2], fps, ResolutionHeightList[3], fps, fps))
-
-		print ("{}Finished dashing{}".format(color.RED, color.END))
-
-	else:
-
-		print ("{}Starting dashing{}".format(color.RED, color.END))
-
-		os.system ("MP4Box -dash {} -frag {} -rap \
-				-segment-name 'segment_$RepresentationID$_' -fps {} \
-				video_intermed_{}p_{}fps.mp4#video:id=360p \
-				video_intermed_{}p_{}fps.mp4#video:id=480p \
-				video_intermed_{}p_{}fps.mp4#video:id=720p \
-				video_intermed_{}p_{}fps.mp4#video:id=1080p \
-				-out manifest.mpd".
-				format(segLen, segLen, fps, ResolutionHeightList[0], fps, ResolutionHeightList[1], fps, ResolutionHeightList[2], fps, ResolutionHeightList[3], fps))
-
-		print ("{}Finished dashing{}".format(color.RED, color.END))
+	print ("{}Finished dashing{}".format(color.RED, color.END))
 
 	os.system ("mkdir encodedVideo encodedVideo/360p encodedVideo/480p encodedVideo/720p encodedVideo/1080p encodedVideo/Audio")
 
@@ -85,15 +68,11 @@ def createChunks (video, fps, segLen, b360, b480, b720, b1080, bAud, bAr, bAc):
 	fileData = fileData.replace('segment_360', '360p/segment_360')
 	fileData = fileData.replace('segment_480', '480p/segment_480')
 	fileData = fileData.replace('segment_720', '720p/segment_720')
+	fileData = fileData.replace('segment_1080', '1080p/segment_1080')
 	fileData = fileData.replace('segment_Audio', 'Audio/segment_Audio')
-
-	if (bAud != -1.0 and bAr != -1.0 and bAc != -1.0):
-		os.system ("rm *.m4a *.mp4")
-		fileData = fileData.replace('segment_1080', '1080p/segment_1080')
-
-	else:
-		os.system ("rm *.m4a *.mp4")
-
+	
+	os.system ("rm *.m4a *.mp4")
+	
 	with open('encodedVideo/manifest.mpd', 'w') as MPDfile:
 		MPDfile.write(fileData)
 
@@ -110,17 +89,13 @@ def main ():
 	parser.add_argument("-b720", "--b720", help="Video bitrate (in Mbps) for 720p")
 	parser.add_argument("-b1080", "--b1080", help="Video bitrate (in Mbps) for 1080p")
 
-	parser.add_argument("-bAud", "--bAud", help="Audio bit rate (in kbps)", nargs='?')
-	parser.add_argument("-bAr", "--bAr", help="Audio sample rate (in kHz)", nargs='?')
-	parser.add_argument("-bAc", "--bAc", help="Number of audio channels", nargs='?')
+	parser.add_argument("-bAud", "--bAud", help="Audio bit rate (in kbps)")
+	parser.add_argument("-bAr", "--bAr", help="Audio sample rate (in kHz)")
+	parser.add_argument("-bAc", "--bAc", help="Number of audio channels")
 
 	args = parser.parse_args()
 
-	if (args.bAud and args.bAr and args.bAc):
-		createChunks (args.video, args.fps, args.segLen, float(args.b360), float(args.b480), float(args.b720), float(args.b1080), float(args.bAud), float(args.bAr), float(args.bAc))
-
-	else:
-		createChunks (args.video, args.fps, args.segLen, float(args.b360), float(args.b480), float(args.b720), float(args.b1080), -1.0, -1.0, -1.0)
+	createChunks (args.video, args.fps, args.segLen, float(args.b360), float(args.b480), float(args.b720), float(args.b1080), float(args.bAud), float(args.bAr), float(args.bAc))
 
 if __name__ == '__main__':
 	main()
