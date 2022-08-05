@@ -113,6 +113,8 @@ Where:\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -bAr (float) – Audio sample rate (in kHz).\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -bAc (float) – Number of audio channels.
 
+For reference values, we recommend using [YouTube’s recommended upload encoding settings](https://support.google.com/youtube/answer/1722171?hl=en#zippy=%2Cbitrate), associating each bitrate to your desired FPS.
+
 Here is an example:
 
 ```
