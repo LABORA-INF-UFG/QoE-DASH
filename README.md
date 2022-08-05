@@ -87,7 +87,7 @@ One example of this file is 'topologyDescription.csv', which is located at [Inpu
 
 This module also gives the flexibity of defining the Internet link capacity. This capacity  is represented as a value varying from 0% to 99% bottleneck compared to the sum of the BS capacities. For example:
 
-If the sum of the BSs capacities is 1000 Mbps, and 'ilc' is defined as 70, the Internet link capacity will be 700 Mbps.
+If the sum of the BSs capacities is 1000 Mbps, and 'ilc' is defined as 70, the internet link capacity will be 700 Mbps.
 
 Once you run the Topology generator, a file named 'topology.json' will be generated describing the topology for QoE-DASH. An example of this file, 'topology.json', is located at [InputFiles/](InputFiles/).
 
@@ -115,10 +115,16 @@ Where:\
 
 Note: If you prefer, you can skip the audio related informartion and encode the video without audio.
 
-Here is an example:
+Here is an example of enconding with audio:
 
 ```
 python3 videoEncoding.py -v ../../InputFiles/videoExample.mp4 -fps 48 -segLen 4 -b360 1.5 -b480 4 -b720 7.5 -b1080 12 -bAud 384 -bAr 48 -bAc 2
+```
+
+Here is an example of enconding without audio:
+
+```
+python3 videoEncoding.py -v ../../InputFiles/videoExample.mp4 -fps 48 -segLen 4 -b360 1.5 -b480 4 -b720 7.5 -b1080 12
 ```
 
 Once the video is encoded, a directory called "encodedVideo" will be created and this directory will contain the video encoded accordingly to your arguments.
@@ -170,7 +176,7 @@ python3 datasetDownloader.py -full
 
 This data set was generated using our [Video encoding](#video-enconding) sub-module. The video we used is on [YouTube](https://www.youtube.com/watch?v=zdZ97vxMfkE&ab_channel=GKorb).
 
-We first downloaded the video, then we created a 2 hour version of the original video with [FFmpeg](https://video.stackexchange.com/questions/12905/repeat-loop-input-video-with-ffmpeg), and finally we used the [Video encoding](#video-enconding) sub-module to generated the data set.
+We first downloaded the video, then we created a 2 hour version of the original video with [FFmpeg](https://video.stackexchange.com/questions/12905/repeat-loop-input-video-with-ffmpeg), and finally we used the [Video encoding](#video-enconding) sub-module to generate the data set.
 
 ### Manifest generator
 
