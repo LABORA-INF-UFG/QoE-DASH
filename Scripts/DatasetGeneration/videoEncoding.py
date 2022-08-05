@@ -71,7 +71,10 @@ def createChunks (video, fps, segLen, b360, b480, b720, b1080, bAud, bAr, bAc):
 	fileData = fileData.replace('segment_1080', '1080p/segment_1080')
 	fileData = fileData.replace('segment_Audio', 'Audio/segment_Audio')
 	
-	os.system ("rm *.m4a *.mp4")
+	for ResIndex in range (len(ResolutionHeightList)):
+		os.system ("rm video_intermed_{}p_{}fps.mp4".format(ResolutionHeightList[ResIndex], fps))
+
+	os.system ("rm audio{}.m4a".format(fps))
 	
 	with open('encodedVideo/manifest.mpd', 'w') as MPDfile:
 		MPDfile.write(fileData)
