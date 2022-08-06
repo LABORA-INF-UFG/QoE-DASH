@@ -40,7 +40,7 @@
 
         <AdaptationSet segmentAlignment="true" lang="und">
 
-        <SegmentTemplate initialization="segment_Audio_.mp4"/>
+        <SegmentTemplate initialization="http://10.16.0.2/segment_Audio_.mp4"/>
 
         <Representation id="Audio" mimeType="audio/mp4" codecs="mp4a.40.2" audioSamplingRate="48000" startWithSAP="1" bandwidth="355985">
 
