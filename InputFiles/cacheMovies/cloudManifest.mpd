@@ -20,7 +20,7 @@
 
         <Representation id="480p" mimeType="video/mp4" codecs="avc3.4d401f" width="854" height="480" frameRate="48" sar="1280:1281" startWithSAP="1" bandwidth="4008779">
 
-            <SegmentTemplate duration="49152" media="http://10.16.0.3/480p/segment_480p_$Number$.m4s" startNumber="1" timescale="12288"/>
+            <SegmentTemplate duration="49152" media="http://10.16.0.2/480p/segment_480p_$Number$.m4s" startNumber="1" timescale="12288"/>
 
         </Representation>
 

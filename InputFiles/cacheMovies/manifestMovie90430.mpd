@@ -12,25 +12,25 @@
 
         <SegmentTemplate initialization="http://10.16.0.2/manifest_set1_init.mp4"/>
 
-        <Representation id="360p" mimeType="video/mp4" codecs="avc3.4d401f" width="640" height="360" frameRate="48" sar="1:1" startWithSAP="1" bandwidth="1506123">
+        <Representation id="360p" mimeType="video/mp4" codecs="avc3.4d401f" width="640" height="360" frameRate="48" sar="1:1" startWithSAP="1" bandwidth="1506156">
 
             <SegmentTemplate duration="49152" media="http://10.16.0.2/360p/segment_360p_$Number$.m4s" startNumber="1" timescale="12288"/>
 
         </Representation>
 
-        <Representation id="480p" mimeType="video/mp4" codecs="avc3.4d401f" width="854" height="480" frameRate="48" sar="1280:1281" startWithSAP="1" bandwidth="4007807">
+        <Representation id="480p" mimeType="video/mp4" codecs="avc3.4d401f" width="854" height="480" frameRate="48" sar="1280:1281" startWithSAP="1" bandwidth="4008779">
 
             <SegmentTemplate duration="49152" media="http://10.16.0.3/480p/segment_480p_$Number$.m4s" startNumber="1" timescale="12288"/>
 
         </Representation>
 
-        <Representation id="720p" mimeType="video/mp4" codecs="avc3.4d4020" width="1280" height="720" frameRate="48" sar="1:1" startWithSAP="1" bandwidth="7477030">
+        <Representation id="720p" mimeType="video/mp4" codecs="avc3.4d4020" width="1280" height="720" frameRate="48" sar="1:1" startWithSAP="1" bandwidth="7509641">
 
             <SegmentTemplate duration="49152" media="http://10.16.0.2/720p/segment_720p_$Number$.m4s" startNumber="1" timescale="12288"/>
 
         </Representation>
 
-        <Representation id="1080p" mimeType="video/mp4" codecs="avc3.4d402a" width="1920" height="1080" frameRate="48" sar="1:1" startWithSAP="1" bandwidth="11746126">
+        <Representation id="1080p" mimeType="video/mp4" codecs="avc3.4d402a" width="1920" height="1080" frameRate="48" sar="1:1" startWithSAP="1" bandwidth="12011745">
 
             <SegmentTemplate duration="49152" media="http://10.16.0.2/1080p/segment_1080p_$Number$.m4s" startNumber="1" timescale="12288"/>
 
