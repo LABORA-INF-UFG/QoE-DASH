@@ -14,7 +14,7 @@ def moviesInCache (cachefile):
 		for line in reader:
 
 			line = ''.join(line)
-			cache = line.split("#", 1)
+			cache = line.split("#", 2)
 
 			cacheMovies.append(cache)
 
@@ -186,11 +186,9 @@ def generateConciseMPD (datasetLocation):
 	tmpFinalMPD = finalMPD.split('Audio_$Number$.m4s" startNumber="1" timescale="')
 	finalMPD = tmpFinalMPD[0] + 'Audio_$Number$.m4s" startNumber="1" timescale="' + timescaleAudio + tmpFinalMPD[1]
 
-	fManifest = open("conciseManifest.mpd", "w")
+	fManifest = open("cloudManifest.mpd", "w")
 	fManifest.write(finalMPD)
 	fManifest.close()
-
-	os.system ("mv conciseManifest.mpd ../../InputFiles")
 
 def generateMPD (cachefile, datasetLocation):
 
@@ -200,7 +198,7 @@ def generateMPD (cachefile, datasetLocation):
 
 	for index in range (len (cacheMovies)):
 		
-		with open ('../../InputFiles/conciseManifest.mpd', 'r') as baseMPD:
+		with open ('cloudManifest.mpd', 'r') as baseMPD:
 			fileData = baseMPD.read()
 
 		if (int(cacheMovies[index][1]) == 1):
@@ -214,6 +212,9 @@ def generateMPD (cachefile, datasetLocation):
 
 		elif (int(cacheMovies[index][1]) == 4):
 			fileData = fileData.replace('http://10.16.0.2/1080p/', 'http://10.16.0.3/1080p/')
+
+		if (int(cacheMovies[index][2]) == 2):
+			fileData = fileData.replace('http://10.16.0.2/Audio/', 'http://10.16.0.3/Audio/')
 
 		cacheMovieName = "manifestMovie{}.mpd".format(int(cacheMovies[index][0]))
 
@@ -230,8 +231,8 @@ def generateMPD (cachefile, datasetLocation):
 def main ():
 
 	parser = argparse.ArgumentParser()
-	parser.add_argument("-c", "--cache", help="The cache description in CSV")
-	parser.add_argument("-l", "--datasetLocation", help="he location of the video encoded by 'Video enconding'")
+	parser.add_argument("-m", "--cache", help="A CSV file describing the movies in cache")
+	parser.add_argument("-l", "--datasetLocation", help="The location of the video encoded by 'Video enconding'")
 	args = parser.parse_args()
 
 	generateMPD (args.cache, args.datasetLocation)
