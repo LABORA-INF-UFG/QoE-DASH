@@ -22,7 +22,7 @@ def generateUsers (file):
 
 	return userList
 
-def generateTopology (tpd, ilc):
+def generateTopology (tpd, ilc, abr):
 
 	#Generating users list
 	userList = generateUsers(tpd)
@@ -39,26 +39,26 @@ def generateTopology (tpd, ilc):
 	ciqDict = {
 
 		#1.5 Mbps, 360p
-		1: 2.768,
-		2: 2.768,
+		1: round(2.768 + abr, 3),
+		2: round(2.768 + abr, 3),
 		#4 Mbps, 480p
-		3: 4.432,
+		3: round(4.432 + abr, 3),
 		#7.5 Mbps, 720p
-		4: 7.548,
-		5: 10.320,
+		4: round(7.548 + abr, 3),
+		5: round(10.320 + abr, 3),
 		#12 Mbps, 1080p
-		6: 13.936,
-		7: 17.520,
-		8: 22.896,
+		6: round(13.936 + abr, 3),
+		7: round(17.520 + abr, 3),
+		8: round(22.896 + abr, 3),
 		#24 Mbps, 1440p (2K)
-		9: 30.528,
-		10: 32.832,
-		11: 42.768,
-		12: 50.912,
+		9: round(30.528 + abr, 3),
+		10: round(32.832 + abr, 3),
+		11: round(42.768 + abr, 3),
+		12: round(50.912 + abr, 3),
 		#53 Mbps, 2160p (4K)
-		13: 56.672,
-		14: 63.408,
-		15: 63.408
+		13: round(56.672 + abr, 3),
+		14: round(63.408 + abr, 3),
+		15: round(63.408 + abr, 3)
 
 	}
 
@@ -104,12 +104,13 @@ def generateTopology (tpd, ilc):
 def main ():
 
 	parser = argparse.ArgumentParser()
-	parser.add_argument("-tpd", "--tpd", help="The topology description in CSV")
+	parser.add_argument("-tpd", "--tpd", help="A CSV file describing the topology")
 	parser.add_argument("-ilc", "--ilc", help="The internet link capacity")
+	parser.add_argument("-bAud", "--abr", help="Audio bit rate (in kbps) (The same audio bitrate used to encode the video).")
 
 	args = parser.parse_args()
 
-	generateTopology (args.tpd, args.ilc)
+	generateTopology (args.tpd, args.ilc, (float(args.abr) / 1000.0))
 
 if __name__ == '__main__':
 	main()
