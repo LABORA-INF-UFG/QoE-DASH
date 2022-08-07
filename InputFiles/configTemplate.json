@@ -1,0 +1,11 @@
+{
+        "url" : "",
+        "adapt" : "bba",
+        "debug" : "on",
+        "logFile" : "",
+        "maxHeight" : ,
+        "outputFolder" : "",
+        "streamDuration" : ,
+        "QoE" : "on",
+        "printHeader" : "{\"Algorithm\":\"on\",\"Seg_Dur\":\"on\",\"Codec\":\"on\",\"Width\":\"on\",\"Height\":\"on\",\"FPS\":\"on\",\"Play_Pos\":\"on\",\"RTT\":\"on\",\"Seg_Repl\":\"on\",\"Protocol\":\"on\",\"P.1203\":\"on\",\"Clae\":\"on\",\"Duanmu\":\"on\",\"Yin\":\"on\",\"Yu\":\"on\"}"
+}
