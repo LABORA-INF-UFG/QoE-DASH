@@ -48,7 +48,13 @@ def main ():
 
 	args = parser.parse_args()
 
-	setup (args.cacheMovies, args.encodedVideo)
+	checkDockerInstallation = os.system ("docker >/dev/null 2>&1")
+
+	if (checkDockerInstallation == 32512):
+		print ("Please install Docker before running the setup script")
+
+	else:
+		setup (args.cacheMovies, args.encodedVideo)
 
 if __name__ == '__main__':
 	main()
