@@ -26,7 +26,7 @@ def downloadDataset (d24fps, d30fps, d48fps, d60fps, dfull):
 
 	if (dfull):
 		print ("Downloading Full data set")
-		id = "1Zz-1M0s9qlflMBRecqt_9JUY7peYd4XyMZRA"
+		id = "1M0s9qlflMBRecqt_9JUY7peYd4XyMZRA"
 		gdown.download(id=id, output='QoE-DASH-Dataset-Full.zip', quiet=False)
 
 def main ():
