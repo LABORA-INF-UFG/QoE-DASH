@@ -15,8 +15,8 @@ QoE-DASH was tested in Ubuntu 20.04 LTS and Ubuntu Server 20.04 LTS. Although it
 	- [Infrastructure manager](#infrastructure-manager)
 	- [Video stream emulator](#video-stream-emulator)
 - [QoE-DASH IEEE ICC 2022 paper](#qoe-dash-ieee-icc-2022-paper)
-	- [Citation](#citation)
 	- [Paper data sets](#paper-data-sets)
+	- [Citation](#citation)
 - [Contact us](#contact-us)
 
 ## Getting started
@@ -274,10 +274,6 @@ Notes:
 
 For more information, read the [QoE-DASH IEEE ICC 2022 paper](https://www.researchgate.net/publication/358063135_QoE-DASH_DASH_QoE_Performance_Evaluation_Tool_for_Edge-Cache_and_Recommendation).
 
-### Citation
-
-Will be added soon.
-
 ### Paper data sets
 
 The data set we generated for the IEEE ICC 2022 paper is publicly available. Due to the data set size, we divided it into four compressed files, each with four resolutions (360p, 480p, 720p, 1080p) and a different FPS (either 24 FPS, or 30 FPS, or 48 FPS or 60 FPS). If you prefer, you can also download the complete data set with all different resolutions and FPSs as well.
@@ -326,6 +322,20 @@ python3 datasetDownloader.py -full
 In order to create the data sets, we first downloaded this [*No Copyright* video from YouTube](https://www.youtube.com/watch?v=zdZ97vxMfkE&ab_channel=GKorb), then we created a 2 hour version of the original video with [FFmpeg](https://video.stackexchange.com/questions/12905/repeat-loop-input-video-with-ffmpeg), and finally we used the [Video encoding](#video-enconding) and the [Manifest generator](#manifest-generator) sub-modules to generate the data sets.
 
 Feel free to use the data sets and QoE-DASH! Please do not forget to cite our paper! :)
+
+### Citation
+
+```
+@inproceedings{esper2022qoe,
+  author={Esper, Jo{\~a}o Paulo and Mon{\c{c}}{\~a}o, Ana Claudia Bastos Loureiro and Rodrigues, Karlla B Chaves and Both, Cristiano Bonato and Corr{\^e}a, Sand Luz and Cardoso, Kleber Vieira},
+  title={{QoE-DASH: DASH QoE Performance Evaluation Tool for Edge-Cache and Recommendation}},
+  year={2022},
+  pages={757--762},
+  organization={IEEE},
+  booktitle={ICC 2022-IEEE International Conference on Communications},
+  doi={10.1109/ICC45855.2022.9839234}
+}
+```
 
 ### Contact us
 
