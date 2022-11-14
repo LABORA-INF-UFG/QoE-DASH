@@ -337,6 +337,6 @@ Feel free to use the data sets and QoE-DASH! Please do not forget to cite our pa
 }
 ```
 
-### Contact us
+## Contact us
 
 If you would like to contact us to contribute to this project, ask questions or suggest improvements, feel free to e-mail us at: qoedash@gmail.com
